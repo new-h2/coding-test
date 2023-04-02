@@ -8,7 +8,12 @@ class Solution {
         // floor 4byte 소수점 7자리 / double 8byte 소수점 15자리
         
         // 실수 1.
-        // Math.trunc쓰고싶었는데 javascript였다....
+        // Math.trunc()쓰고싶었는데 javascript였다....
+        // 그럼 Math.floor()사용하고싶어서 int answer = Math.floor(answer1);출력해봤더니
+        // incompatible types: possible lossy conversion from double to int 
+        // 실수를 정수로 저장하면 실수의 소수점아래값을 잃게됨으로 자바는 허용 불가
+        // 강제로 형변환 하면 사용가능.. 
+        // int answer = (int)Math.floor(answer1); 
         
         //  실수 2.
         //  (double)((num1/num2) * 1000); 가로를 쓰면 안됨
@@ -19,9 +24,9 @@ class Solution {
         // 2. 예시로 1 /16 일경우 0 을 곱하면 무조건 0 이기때문에 테스트 패스 불가 
         // 3. 산술연산의 경우 두 피연산자의 타입 중 더 큰 타입으로 일치시키는 것
         // 4. (double) a + b  
-        //    a + b(double)
+        //     a + b(double)
         //    (double) a + (double) b
-        
+                
         return (int)answer;
     }
 }
